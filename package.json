@@ -1,0 +1,25 @@
+{
+  "name": "comfyui-get-meta",
+  "version": "1.0.0",
+  "description": "Get metadata from image.",
+  "type": "module",
+  "scripts": {
+    "pub": "node scripts/pub.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinich39/comfyui-get-meta.git"
+  },
+  "keywords": [
+    "comfyui"
+  ],
+  "author": "shinich39 <shinich39@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinich39/comfyui-get-meta/issues"
+  },
+  "homepage": "https://github.com/shinich39/comfyui-get-meta#readme",
+  "dependencies": {
+    "dotenv": "^16.5.0"
+  }
+}
