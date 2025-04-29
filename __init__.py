@@ -7,7 +7,7 @@
 """
 
 from .py.api import *
-from .nodes.meta import *
+from .nodes import *
 
 NODE_CLASS_MAPPINGS = {
   "GetBooleanFromImage": GetBooleanFromImage,
@@ -16,6 +16,8 @@ NODE_CLASS_MAPPINGS = {
   "GetStringFromImage": GetStringFromImage,
   "GetComboFromImage": GetComboFromImage,
   "GetNodesFromImage": GetNodesFromImage,
+  "GetWorkflowFromImage": GetWorkflowFromImage,
+  "GetPromptFromImage": GetPromptFromImage,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
@@ -25,6 +27,8 @@ NODE_DISPLAY_NAME_MAPPINGS = {
   "GetStringFromImage": "Get String from Image",
   "GetComboFromImage": "Get Combo from Image",
   "GetNodesFromImage": "Get Nodes from Image",
+  "GetWorkflowFromImage": "Get Workflow from Image",
+  "GetPromptFromImage": "Get Prompt from Image",
 }
 
 WEB_DIRECTORY = "./js"

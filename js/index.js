@@ -15,6 +15,8 @@ const Types = {
     "GetStringFromImage",
     "GetComboFromImage",
     "GetNodesFromImage",
+    "GetWorkflowFromImage",
+    "GetPromptFromImage",
   ],
   Image: [
     "LoadImage",
@@ -140,6 +142,16 @@ async function initMetaNode() {
     this[PROP_KEY].update = (async function() {
       const data = await this[PROP_KEY].getMetadata();
       if (!data) {
+        return;
+      }
+
+      if (this.comfyClass === "GetWorkflowFromImage") {
+        this.widgets[0].value = JSON.stringify(data.workflow || {}, null, 2);
+        return;
+      }
+
+      if (this.comfyClass === "GetPromptFromImage") {
+        this.widgets[0].value = JSON.stringify(data.prompt || {}, null, 2);
         return;
       }
 
