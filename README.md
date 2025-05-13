@@ -4,6 +4,8 @@ Get metadata from image.
 
 ## Usage  
 
+#### Nodes
+
 Add node > image > ...  
 
 Get Boolean from Image  
@@ -15,7 +17,7 @@ Get Nodes from Image
 Get Prompt from Image  
 Get Workflow from Image  
 
-## Query
+#### Query
 
 #NODE_ID.WIDGET_NAME  
 NODE_TYPE.WIDGET_NAME  
@@ -34,7 +36,7 @@ CheckpointLoaderSimple.ckpt_name // Combo
 
 If node is Note, enter Note.text to get note value.
 
-## Special Query
+#### Special Query
 
 REL_PATH    // String  
 ABS_PATH    // String  
