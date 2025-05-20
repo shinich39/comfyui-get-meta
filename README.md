@@ -4,7 +4,9 @@ Get metadata from image.
 
 ## Usage  
 
-#### Nodes
+Get metadata when run generation or connection changed.
+
+### Nodes
 
 Add node > image > ...  
 
@@ -17,7 +19,7 @@ Get Nodes from Image
 Get Prompt from Image  
 Get Workflow from Image  
 
-#### Query
+### Query
 
 #NODE_ID.WIDGET_NAME  
 NODE_TYPE.WIDGET_NAME  
@@ -36,7 +38,7 @@ CheckpointLoaderSimple.ckpt_name // Combo
 
 If node is Note, enter Note.text to get note value.
 
-#### Special Query
+### Special Query
 
 REL_PATH    // String  
 ABS_PATH    // String  
@@ -46,6 +48,14 @@ FILE_NAME   // String
 EXT_NAME    // String  
 WIDTH       // Int  
 HEIGHT      // Int  
+
+## Supports
+
+- LoadImage: Core
+- LoadImageMask: Core
+- LoadImage //Inspire: [ComfyUI-Inspire-Pack](https://github.com/ltdrdata/ComfyUI-Inspire-Pack)
+- Load image with metadata \[Crystools\]: [ComfyUI-Crystools](https://github.com/crystian/ComfyUI-Crystools)
+- Image Load: [was-node-suite-comfyui](https://github.com/WASasquatch/was-node-suite-comfyui)
 
 ## Acknowledgements
 
