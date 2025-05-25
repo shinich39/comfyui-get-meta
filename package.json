@@ -4,8 +4,7 @@
   "description": "Get metadata from image.",
   "type": "module",
   "scripts": {
-    "commit": "node scripts/commit.js",
-    "pub": "node scripts/publish.js"
+    "commit": "node scripts/commit.js"
   },
   "repository": {
     "type": "git",
