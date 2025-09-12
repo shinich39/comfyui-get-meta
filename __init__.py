@@ -2,7 +2,7 @@
 @author: shinich39
 @title: comfyui-get-meta
 @nickname: comfyui-get-meta
-@version: 1.0.0
+@version: 1.0.1
 @description: Get metadata from image.
 """
 
