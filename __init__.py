@@ -6,8 +6,10 @@
 @description: Get metadata from image.
 """
 
-from .py.api import *
+from .py import api
 from .nodes import *
+
+# install.install_pillow_avif_plugin()
 
 NODE_CLASS_MAPPINGS = {
   "GetBooleanFromImage": GetBooleanFromImage,

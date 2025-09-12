@@ -83,11 +83,12 @@ async function initMetaNode() {
     }).bind(this);
     
     this[PROP_KEY].getMetadata = (async function() {      
+      const node = this[PROP_KEY].getImageNode();
+      if (!node) {
+        return;
+      }
+
       try {
-        const node = this[PROP_KEY].getImageNode();
-        if (!node) {
-          return;
-        }
         if (node[PROP_KEY] instanceof Error) {
           return;
         } else if (typeof node[PROP_KEY] === "object") {
@@ -98,7 +99,7 @@ async function initMetaNode() {
           return;
         }
 
-        const { 
+        let { 
           absPath,
           relPath,
           fullName,
@@ -111,8 +112,26 @@ async function initMetaNode() {
           format, // "PNG"
         } = await getMetadata(filePath);
 
-        const workflow = info?.workflow ? JSON5.parse(info.workflow) : undefined;
-        const prompt = info?.prompt ? JSON5.parse(info.prompt) : undefined;
+        if (typeof info === "string") {
+          try {
+            info = JSON5.parse(info);
+          } catch(err) {
+            info = { workflow: {}, prompt: {} };
+            console.error(err);
+          }
+        }
+
+        const workflow = info?.workflow 
+          ? JSON5.parse(info.workflow)
+          : info?.Workflow
+          ? JSON5.parse(info.Workflow)
+          : undefined;
+
+        const prompt = info?.prompt 
+          ? JSON5.parse(info.prompt)
+          : info?.Prompt
+          ? JSON5.parse(info.Prompt)
+          : undefined;
 
         const nodes = parseWorkflow(workflow, prompt);
         
@@ -146,12 +165,20 @@ async function initMetaNode() {
       }
 
       if (this.comfyClass === "GetWorkflowFromImage") {
-        this.widgets[0].value = JSON.stringify(data.workflow || {}, null, 2);
+        try {
+          this.widgets[0].value = JSON.stringify(data.workflow || {}, null, 2);
+        } catch(err) {
+          this.widgets[0].value = "{}";
+        }
         return;
       }
 
       if (this.comfyClass === "GetPromptFromImage") {
-        this.widgets[0].value = JSON.stringify(data.prompt || {}, null, 2);
+        try {
+          this.widgets[0].value = JSON.stringify(data.prompt || {}, null, 2);
+        } catch(err) {
+          this.widgets[0].value = "{}";
+        }
         return;
       }
 
