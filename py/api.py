@@ -1,6 +1,5 @@
 import os
 import traceback
-import json
 import re
 
 from server import PromptServer
@@ -57,6 +56,7 @@ def get_metadata(file_path):
       else:
         info["prompt"] = {}
 
+      # debug
       # print(info)
 
     return {
@@ -68,29 +68,13 @@ def get_metadata(file_path):
         "format": image.format,
       }
     }
-    
-# @PromptServer.instance.routes.post("/shinich39/comfyui-get-meta/parse-path")
-# async def _parse_path(request):
-#   try:
-#     req = await request.json()
-#     file_path = req["path"]
-#     return web.json_response(parse_file_path(file_path))
-#   except Exception as err:
-#     print(traceback.format_exc())
-#     return web.Response(status=400)
 
 @PromptServer.instance.routes.post("/shinich39/comfyui-get-meta/read-metadata")
 async def _read_metadata(request):
   try:
     req = await request.json()
     file_path: str = req["path"]
-
-    # bugfix: comfyui desktop root
-    if os.path.exists(file_path) == False:
-      file_path = file_path.replace("ComfyUI/", "")
-
     result = get_metadata(file_path)
-
     return web.json_response(result)
   except Exception as err:
     print(traceback.format_exc())

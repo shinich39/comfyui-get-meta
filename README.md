@@ -15,13 +15,13 @@ Get Int from Image
 Get Float from Image  
 Get String from Image  
 Get Combo from Image  
-Get Nodes from Image  
+Get Values from Image  
 Get Prompt from Image  
 Get Workflow from Image  
 
 ### Query
 
-#NODE_ID.WIDGET_NAME  
+#NODE_ID.WIDGET_NAME: prefix "#" is required  
 NODE_TYPE.WIDGET_NAME  
 NODE_TYPE\[NODE_INDEX\].WIDGET_NAME  
 NODE_TITLE.WIDGET_NAME  

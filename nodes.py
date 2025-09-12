@@ -5,7 +5,7 @@ class AnyType(str):
 
 ANY_TYPE = AnyType("*")
 
-class GetNodesFromImage():
+class GetValuesFromImage():
   def __init__(self):
     pass
 

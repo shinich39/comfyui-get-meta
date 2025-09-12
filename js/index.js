@@ -5,6 +5,7 @@ import { api } from "../../scripts/api.js";
 import JSON5 from "./utils/json5.min.js";
 import { parseWorkflow } from "./utils/workflow.js";
 
+const isDesktop = navigator.userAgent.toLowerCase().includes("electron");
 const PROP_KEY = "GetMeta";
 
 const Types = {
@@ -14,7 +15,7 @@ const Types = {
     "GetFloatFromImage",
     "GetStringFromImage",
     "GetComboFromImage",
-    "GetNodesFromImage",
+    "GetValuesFromImage",
     "GetWorkflowFromImage",
     "GetPromptFromImage",
   ],
@@ -182,7 +183,7 @@ async function initMetaNode() {
         return;
       }
 
-      if (this.comfyClass === "GetNodesFromImage") {
+      if (this.comfyClass === "GetValuesFromImage") {
         const entries = data.nodes.reduce((acc, curr) => {
           const { 
             id,
@@ -344,17 +345,17 @@ function getFilePathFromImageNode(node) {
       // core
       case "LoadImage":
       case "LoadImageMask": 
-        prefix = "ComfyUI/input";
+        prefix = isDesktop ? "input" : "ComfyUI/input";
         suffix = node.widgets.find(e => e.name === "image")?.value;
         break;
       // ComfyUI-Inspire-Pack
       case "LoadImage //Inspire": 
-        prefix = "ComfyUI/input";
+        prefix = isDesktop ? "input" : "ComfyUI/input";
         suffix = node.widgets.find(e => e.name === "image")?.value;
         break;
       // ComfyUI-Crystools
       case "Load image with metadata [Crystools]": 
-        prefix = "ComfyUI/input";
+        prefix = isDesktop ? "input" : "ComfyUI/input";
         suffix = node.widgets.find(e => e.name === "image")?.value;
         break;
       // WAS Node Suite

@@ -9,15 +9,13 @@
 from .py import api
 from .nodes import *
 
-# install.install_pillow_avif_plugin()
-
 NODE_CLASS_MAPPINGS = {
   "GetBooleanFromImage": GetBooleanFromImage,
   "GetIntFromImage": GetIntFromImage,
   "GetFloatFromImage": GetFloatFromImage,
   "GetStringFromImage": GetStringFromImage,
   "GetComboFromImage": GetComboFromImage,
-  "GetNodesFromImage": GetNodesFromImage,
+  "GetValuesFromImage": GetValuesFromImage,
   "GetWorkflowFromImage": GetWorkflowFromImage,
   "GetPromptFromImage": GetPromptFromImage,
 }
@@ -28,7 +26,7 @@ NODE_DISPLAY_NAME_MAPPINGS = {
   "GetFloatFromImage": "Get Float from Image",
   "GetStringFromImage": "Get String from Image",
   "GetComboFromImage": "Get Combo from Image",
-  "GetNodesFromImage": "Get Nodes from Image",
+  "GetValuesFromImage": "Get Values from Image", # for debugging
   "GetWorkflowFromImage": "Get Workflow from Image",
   "GetPromptFromImage": "Get Prompt from Image",
 }
